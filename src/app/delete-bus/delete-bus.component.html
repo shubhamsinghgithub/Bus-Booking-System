@@ -1,0 +1,16 @@
+<div class="col-md-4 offset-4 mt-6 card" style="background:darkgrey">
+    <div class="card-body">
+    <form #deleteBus="ngForm" (ngSubmit)="deleteBusMethod(deleteBus)">
+        <h1 class="h1 text-center">Delete Bus</h1>
+        <div class="form-group">
+            <label for="busId" class="text-success">Bus Id</label>
+            <input type="number" #busId="ngModel" ngModel name="busId" id="busId" class="form-control" required
+                placeholder="Enter Bus id">
+            <div *ngIf="busId.touched && busId.invalid">
+                <p class="alert alert-danger"> *This field is required</p>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary float-right" [disabled]="deleteBus.invalid">Delete Bus </button>
+    </form>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="col-md-5 offset-md-4 card card-body mt-5">
+    <form #setAvailForm="ngForm" (ngSubmit)="setAvail(setAvailForm)">
+        <h1 class="bg-info text-light card" align="center">Set Avaliability</h1>
+        <h6 class="text-danger float-right">*Required Fields</h6>
+        <div class="form-group">
+            <label for="availableDate" class="text-success">Available Date<h6 class="text-danger float-right">*</h6></label>
+            <input type="date" #availableDate="ngModel" ngModel name="availableDate" id="availableDate" class="form-control" required
+                placeholder="Enter available date">
+            <div *ngIf="availableDate.touched && availableDate.invalid">
+                <p class="alert alert-danger"> *This field is required</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="availableSeat" class="text-success">Available Seats<h6 class="text-danger float-right">*</h6></label>
+            <input type="number" #availableSeat="ngModel" ngModel name="availableSeat" id="availableSeat" class="form-control" required
+                placeholder="Enter available seat">
+            <div *ngIf="availableSeat.touched && availableSeat.invalid">
+                <p class="alert alert-danger"> This field is required</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="busId" class="text-success">Available Bus Id<h6 class="text-danger float-right">*</h6></label>
+            <input type="number" #busId="ngModel" ngModel name="busId" id="busId" class="form-control"
+                required placeholder="Enter bus id">
+            <div *ngIf="busId.touched && busId.invalid">
+                <p class="alert alert-danger"> This field is required</p>
+            </div>
+        </div>
+
+      
+        <button type="submit" class="btn btn-primary float-right" [disabled]="setAvailForm.invalid">Set Avail</button>
+
+
+    </form>
+</div>

@@ -1,0 +1,22 @@
+<div class="col-md-9 offset-md-2 card card-body mt-3">
+    <table class="table table-bordered table-hover table-striped">
+        <thead class="bg-info">
+            <td>Booking Id</td>
+            <td>Bus Id</td>
+            <td>Customer Id</td>
+            <td>Journey Date</td>
+            <td>Number Of Seats</td>
+            <td>Booking Date Time</td>
+        </thead>
+        <tbody>
+            <tr *ngFor='let ticket of tickets'>
+                <td>{{ticket.bookingId}}</td>
+                <td>{{ticket.busId}}</td>
+                <td>{{ticket.customerId}}</td>
+                <td>{{ticket.journeyDate | date}}</td>
+                <td>{{ticket.numOfSeats}}</td>
+                <td>{{ticket.bookingDateTime | date : 'medium'}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,38 @@
+<div class="col-md-8 offset-md-2 card card-body mt-5">
+    <table class="table table-bordered table-hover table-striped">
+        <thead style="background:darkgrey">
+            <td>User Id</td>
+            <td>User Name</td>
+            <td>User Email</td>
+            <td>User Password</td>
+            <td>User Mobile</td>
+            <td>Type</td>
+        </thead>
+        <tbody>
+            <tr *ngFor='let owner of owners'>
+                <td>{{owner.userId}}</td>
+                <td>{{owner.userName}}</td>
+                <td>{{owner.userEmail}}</td>
+                <td>{{owner.userPassword}}</td>
+                <td>{{owner.userMobile}}</td>
+                <td>{{owner.type}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="col-md-4 offset-4 mt-6 card" style="background:darkgrey">
+    <div class="card-body">
+    <form #removeOwner="ngForm" (ngSubmit)="remove(removeOwner)">
+        <h1 class="h1 text-center">Delete Owner</h1>
+        <div class="form-group">
+            <label class="text-success" for="userId">Owner Id</label>
+            <input type="number" #userId="ngModel" ngModel name="userId" id="userId" class="form-control" required
+                placeholder="Enter Owner Id to delete">
+            <div *ngIf="userId.touched && userId.invalid">
+                <p class="alert alert-danger"> *This field is required</p>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary float-right" [disabled]="removeOwner.invalid">Remove </button>
+    </form>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="col-md-4 offset-4 mt-6 card" style="background:darkgrey">
+        <div class="card-body">
+    <form #viewTicketForm="ngForm" (ngSubmit)="viewTicketFormMethod(viewTicketForm.value)">
+        <h1 class="h1 text-center">Get Ticket</h1>
+        <div class="form-group">
+            <label for="bookingId" class="text-success">Booking Id</label>
+            <input type="number" #bookingId="ngModel" ngModel name="bookingId" id="bookingId" class="form-control"
+                required placeholder="Enter Booking id">
+            <div *ngIf="bookingId.touched && bookingId.invalid">
+                <p class="alert alert-danger"> *This field is required</p>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-outline-info btn-block form-control" [disabled]="viewTicketForm.invalid">View
+        </button>
+    </form>
+    </div>
+</div>
+<div class="col-md-9 offset-md-2 card card-body mt-3" *ngIf="show">
+        <table class="table table-bordered table-hover table-striped">
+            <thead class="bg-info">
+                <td>booking Id</td>
+                <td>bus Id</td>
+                <td>customer Id</td>
+                <td>journey Date</td>
+                <td>numOfSeats</td>
+                <td>bookingDateTime</td>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{tickets.ticket.bookingId}}</td>
+                    <td>{{tickets.ticket.busId}}</td>
+                    <td>{{tickets.ticket.customerId}}</td>
+                    <td>{{tickets.ticket.journeyDate | date}}</td>
+                    <td>{{tickets.ticket.numOfSeats}}</td>
+                    <td>{{tickets.ticket.bookingDateTime | date : 'medium'}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>

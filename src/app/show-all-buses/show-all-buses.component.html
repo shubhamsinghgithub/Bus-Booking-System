@@ -1,0 +1,24 @@
+<div class="col-md-9 offset-md-2 card card-body mt-3">
+    <table class="table table-bordered table-hover table-striped">
+        <thead style="background:darkgrey">
+            <td>bus id</td>
+            <td>Bus Name</td>
+            <td>Bus Source Id</td>
+            <td>Bus Destintion</td>
+            <td>Bus Type</td>
+            <td>Total Seats</td>
+            <td>Ticket Price</td>
+        </thead>
+        <tbody>
+            <tr *ngFor='let bus of buses'>
+                <td>{{bus.busId}}</td>
+                <td>{{bus.busName}}</td>
+                <td>{{bus.startingPoint}}</td>
+                <td>{{bus.endingPoint}}</td>
+                <td>{{bus.busType}}</td>
+                <td>{{bus.totalSeats}}</td>
+                <td>{{bus.cost}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

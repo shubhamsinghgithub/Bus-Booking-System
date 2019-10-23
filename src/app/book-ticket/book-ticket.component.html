@@ -1,0 +1,25 @@
+<div class="col-md-5 offset-md-4 card card-body mt-5">
+    <form #bookTicketForm="ngForm" (ngSubmit)="bookTicket(bookTicketForm)">
+        <h1 class="bg-info text-light card" align="center">Book Ticket</h1>
+        <h6 class="text-danger float-right">*Required Fields</h6>
+        <div class="form-group">
+            <label for="busId" class="text-success">Seats to book
+            </label>
+            <input type="text" #busId="ngModel" ngModel name="busId" id="busId" class="form-control"
+                required placeholder="Enter  Bus Id">
+            <div *ngIf="busId.touched && busId.invalid">
+                <p class="alert alert-danger"> This field is required</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="numOfSeats" class="text-success">No of Seats to book
+            </label>
+            <input type="text" #numOfSeats="ngModel" ngModel name="numOfSeats" id="numOfSeats" class="form-control"
+                required placeholder="Enter number of seats">
+            <div *ngIf="numOfSeats.touched && numOfSeats.invalid">
+                <p class="alert alert-danger"> This field is required</p>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary float-center" [disabled]="bookTicketForm.invalid">Confirm</button>
+    </form>
+</div>

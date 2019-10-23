@@ -1,0 +1,83 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand" routerLink="/">
+        <img
+            src="https://www.themeenergy.com/themes/wordpress/transfers/wp-content/themes/transfers/images/transfers.jpg">
+    </a>
+    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+        aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation"></button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="/"><b>Home</b> </a>
+            </li>
+
+
+            <!-- ADMIN PERFORMANCE -->
+            <li class="nav-item active" *ngIf="isAdminLogin">
+                <a class="nav-link" routerLink="addOwner"><b>Add Owner</b> </a>
+            </li>
+            <li class="nav-item active" *ngIf="isAdminLogin">
+                <a class="nav-link" routerLink="removeOwner"><b>Delete Owner</b> </a>
+            </li>
+            <li class="nav-item active" *ngIf="isAdminLogin">
+                <a class="nav-link" routerLink="removeUser"><b>Delete Customer</b> </a>
+            </li>
+
+            <!-- OWNER PERFORMANCE -->
+            <li class="nav-item active" *ngIf="isOwnerLogin">
+                <a class="nav-link" routerLink="addBus"><b>Add Bus</b> </a>
+            </li>
+            <li class="nav-item active" *ngIf="isOwnerLogin">
+                <a class="nav-link" routerLink="updateBus"><b>Update Bus</b> </a>
+            </li>
+            <li class="nav-item active" *ngIf="isOwnerLogin">
+                <a class="nav-link" routerLink="deleteBus"><b>Delete Bus</b> </a>
+            </li>
+            <!-- <li class="nav-item active" *ngIf="isOwnerLogin">
+                <a class="nav-link" routerLink="getAllTickets"><b>Get All Tickets</b> </a>
+            </li>
+            <li class="nav-item active" *ngIf="isOwnerLogin">
+                <a class="nav-link" routerLink="getAllFeedbacks"><b>Get All Feedbacks</b> </a>
+            </li> -->
+            <li class="nav-item active" *ngIf="isOwnerLogin">
+                <a class="nav-link" routerLink="showAllBuses"><b>Show All Buses</b> </a>
+            </li>
+            <!-- <li class="nav-item active" *ngIf="isOwnerLogin">
+                <a class="nav-link" routerLink="setAvaliability"><b>Set Avaliability</b></a>
+            </li> -->
+
+
+            <!-- CUSTOMER PERFORMANCE -->
+            <li class="nav-item active" *ngIf="isCustomerLogin">
+                <a class="nav-link" routerLink="checkAvaliability"><b>Check Avaliability</b></a>
+            </li>
+            <li class="nav-item active" *ngIf="getavalia && isCustomerLogin">
+                <a class="nav-link" routerLink="bookTicket"><b>Book Ticket</b></a>
+            </li>
+            <li class="nav-item active" *ngIf="isCustomerLogin">
+                <a class="nav-link" routerLink="viewTicket"><b>View Ticket</b></a>
+            </li>
+            <li class="nav-item active" *ngIf="isCustomerLogin">
+                <a class="nav-link" routerLink="cancelTicket"><b>Cancel Ticket</b></a>
+            </li>
+            <li class="nav-item active" *ngIf="isCustomerLogin">
+                <a class="nav-link" routerLink="giveFeedback"><b>Feedback</b></a>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item active" *ngIf="!isAdminLogin && !isOwnerLogin && !isCustomerLogin">
+                <a class="nav-link" routerLink="register"><b>Register</b> </a>
+            </li>
+            <li class="nav-item active" *ngIf="!isAdminLogin && !isOwnerLogin && !isCustomerLogin">
+                <a class="nav-link" routerLink="login"><b>Login</b> </a>
+            </li>
+            <li class="nav-item active" *ngIf="isCustomerLogin">
+                <a class="nav-link" routerLink="updateUser"><b>Profile</b></a>
+            </li>
+            <li class="nav-item active" *ngIf="isAdminLogin || isOwnerLogin || isCustomerLogin">
+                <button type="button" class="btn btn-outline-danger" (click)="logout()"><b>Logout</b></button>
+            </li>
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,14 @@
+<div class="col-md-5 offset-md-4 card card-body mt-3">
+    <table class="table table-bordered table-hover table-striped">
+        <thead class="bg-info">
+            <td>User Id</td>
+            <td>Feedback</td>
+        </thead>
+        <tbody>
+            <tr *ngFor='let feedback of feedbacks'>
+                <td>{{feedback.customerId}}</td>
+                <td>{{feedback.feedback}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

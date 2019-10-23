@@ -1,0 +1,26 @@
+<div class="col-md-4 offset-4 mt-6 card" style="background:darkgrey">
+    <div class="card-body">
+        <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+            <h1 class="h1 text-center">Login Form</h1>
+            <div class="form-group">
+                <label for="userId" class="text-success">User Id</label>
+                <input type="number" #userId="ngModel" ngModel name="userId" id="userId" class="form-control"
+                    placeholder="Enter User Id">
+                <div *ngIf="userId.touched && userId.invalid">
+                    <p class="alert alert-danger"> *This field is required</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="text-success">User Password</label>
+                <input type="password" #userPassword="ngModel" ngModel name="userPassword" id="userPassword"
+                    class="form-control" required placeholder="Enter User Password">
+                <div *ngIf="userPassword.touched && userPassword.invalid">
+                    <p class="alert alert-danger"> This field is required</p>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-outline-info btn-block form-control" [disabled]="login.invalid">Login
+            </button>
+        </form>
+    </div>
+</div>

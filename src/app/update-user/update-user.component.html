@@ -1,0 +1,87 @@
+<!--********* PROFILE *********-->
+<div class="col-sm-4" style="background:snow">
+    <div class="col">
+        <div class="card ml-auto mr-4" style="width:300px">
+            <img class="card-img-top"
+                src="https://image.shutterstock.com/image-photo/white-bus-driving-on-road-260nw-649337458.jpg"
+                alt="Card image">
+            <div class="card-body">
+                <h4 class="card-title">Shubham Singh</h4>
+                <a  class="btn btn-primary">
+
+                    <!-- Button trigger modal -->
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                        See Profile
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">My Account</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <div class="card" style="width: 18rem;">
+                                        <img src="https://image.shutterstock.com/image-photo/side-profile-view-portrait-smart-260nw-790169848.jpg"
+                                            class="card-img-top" alt="..."></div>
+                                    <form #updateUser="ngForm" (ngSubmit)="user(updateUser)">
+                                    
+                                        
+                                        <div class="form-group">
+                                            <label for="userName" class="text-success">User Name
+                                                </label>
+                                            <input type="text" #userName="ngModel" ngModel name="userName" id="userName"
+                                                class="form-control" required>
+                                            <div *ngIf="userName.touched && userName.invalid">
+                                                <p class="alert alert-danger"> This field is required</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="userEmail" class="text-success">Email</label>
+                                            <input type="email" #userEmail="ngModel" ngModel name="userEmail"
+                                                id="userEmail" class="form-control" required>
+                                            <div *ngIf="userEmail.touched && userEmail.invalid">
+                                                <p class="alert alert-danger"> This field is required</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="userPassword" class="text-success">Password
+                                            </label>
+                                            <input type="password" #userPassword="ngModel" ngModel name="userPassword"
+                                                id="userPassword" class="form-control" required>
+                                            <div *ngIf="userPassword.touched && userPassword.invalid">
+                                                <p class="alert alert-danger"> This field is required</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="userMobile" class="text-success">Contact Number
+                                            </label>
+                                            <input type="number" #userMobile="ngModel" ngModel name="userMobile"
+                                                id="userMobile" class="form-control" required>
+                                        </div>
+                                        <div *ngIf="userMobile.touched && userMobile.invalid">
+                                            <p class="alert alert-danger"> This field is required</p>
+                                        </div>
+                                        <input type="hidden" name="type" id="type" #type="ngModel" [(ngModel)]=name>
+                                        <button type="submit" class="btn btn-primary float-right"
+                                            [disabled]="updateUser.invalid">Update </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

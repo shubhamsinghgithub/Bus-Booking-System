@@ -1,0 +1,38 @@
+<div class="col-md-9 offset-md-2 card card-body mt-3">
+    <table class="table table-bordered table-hover table-striped">
+        <thead style="background:darkgrey">
+            <td>User Id</td>
+            <td>User Name</td>
+            <td>User Email</td>
+            <td>User Password</td>
+            <td>User Mobile</td>
+            <td>Type</td>
+        </thead>
+        <tbody>
+            <tr *ngFor='let user of users'>
+                <td>{{user.userId}}</td>
+                <td>{{user.userName}}</td>
+                <td>{{user.userEmail}}</td>
+                <td>{{user.userPassword}}</td>
+                <td>{{user.userMobile}}</td>
+                <td>{{user.type}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="col-md-4 offset-4 mt-6 card" style="background:darkgrey">
+    <div class="card-body">
+    <form #removeUser="ngForm" (ngSubmit)="remove(removeUser)">
+        <h1 class="h1 text-center">Delete User</h1>
+        <div class="form-group">
+            <label class="text-success" for="userId">User Id</label>
+            <input type="number" #userId="ngModel" ngModel name="userId" id="userId" class="form-control" required
+                placeholder="Enter User Id to delete">
+            <div *ngIf="userId.touched && userId.invalid">
+                <p class="alert alert-danger"> *This field is required</p>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary float-right" [disabled]="removeUser.invalid">Remove</button>
+    </form>
+    </div>
+</div>

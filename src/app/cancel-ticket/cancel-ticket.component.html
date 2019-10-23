@@ -1,0 +1,18 @@
+<div class="col-md-4 offset-4 mt-6 card" style="background:darkgrey">
+    <div class="card-body">
+        <form #cancelTicketForm="ngForm" (ngSubmit)="cancelTicketFormMethod(cancelTicketForm.value)">
+            <h1 class="h1 text-center">Cancel Ticket</h1>
+            <div class="form-group">
+                <label for="bookingId" class="text-success"> Enter booking Id </label>
+                <input type="number" #bookingId="ngModel" ngModel name="bookingId" id="bookingId" class="form-control"
+                    required placeholder="Enter Booking id">
+                <div *ngIf="bookingId.touched && bookingId.invalid">
+                    <p class="alert alert-danger"> *This field is required</p>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-outline-info btn-block form-control"
+                [disabled]="cancelTicketForm.invalid">Cancel
+            </button>
+        </form>
+    </div>
+</div>

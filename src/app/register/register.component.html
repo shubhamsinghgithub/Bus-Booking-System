@@ -1,0 +1,51 @@
+<div class="col-md-4 offset-4 mt-6 card" style="background:darkgrey">
+        <div class="card-body">
+    <form #registerUser="ngForm" (ngSubmit)="user(registerUser)">
+        <h1 class="h1 text-center">Registration Form</h1>
+        <div class="form-group">
+            <label for="userId" class="text-success">User Id</label>
+            <input type="number" #userId="ngModel" ngModel name="userId" id="userId" class="form-control" required placeholder="Enter User Id">
+            <div *ngIf="userId.touched && userId.invalid">
+                <p class="alert alert-danger"> *This field is required</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="userName" class="text-success">Name</label>
+            <input type="text" #userName="ngModel" ngModel name="userName" id="userName" class="form-control" required placeholder="Enter user name">
+            <div *ngIf="userName.touched && userName.invalid">
+                <p class="alert alert-danger"> This field is required</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="userEmail" class="text-success">Email</label>
+            <input type="email" #userEmail="ngModel" ngModel name="userEmail" id="userEmail" class="form-control"
+                required placeholder="Enter user email">  
+            <div *ngIf="userEmail.touched && userEmail.invalid">
+                <p class="alert alert-danger"> This field is required</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="userPassword" class="text-success">Password </label>
+            <input type="password" #userPassword="ngModel" ngModel name="userPassword" id="userPassword"
+                class="form-control" required placeholder="Enter password">
+            <div *ngIf="userPassword.touched && userPassword.invalid">
+                <p class="alert alert-danger"> This field is required</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="userMobile" class="text-success">Contact Number </label>
+            <input type="number" #userMobile="ngModel" ngModel name="userMobile" id="userMobile" class="form-control"
+                required placeholder="Enter Contact">
+        </div>
+        <div *ngIf="userMobile.touched && userMobile.invalid">
+            <p class="alert alert-danger"> This field is required</p>
+        </div>
+        <input type="hidden" name="type" id="type" #type="ngModel" [(ngModel)]=name>
+        <button type="submit" class="btn btn-outline-info btn-block form-control" [disabled]="registerUser.invalid">Register </button>
+    </form>
+    </div>
+</div>
